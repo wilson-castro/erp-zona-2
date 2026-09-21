@@ -1,6 +1,7 @@
 import { nucleo } from '@/lib/nucleo'
 import { exigirModulo } from '@/lib/pagina'
-import { FormularioConcluir } from './FormularioConcluir'
+import { FormularioDeAcao } from '@erp/moldura'
+import { concluirTarefa } from './acoes'
 
 type Tarefa = { id: string; titulo: string; concluida: boolean; versao: number }
 
@@ -15,7 +16,9 @@ export default async function Tarefas() {
           <li key={t.id}>
             {t.titulo} — {t.concluida ? 'concluída' : 'pendente'}
             {!t.concluida && (
-              <FormularioConcluir id={t.id} versao={String(t.versao)} />
+              <FormularioDeAcao acao={concluirTarefa} campos={{ id: t.id, versao: String(t.versao) }}>
+                <button type="submit">Concluir e ir para a zona 1</button>
+              </FormularioDeAcao>
             )}
           </li>
         ))}

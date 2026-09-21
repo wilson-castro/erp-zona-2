@@ -5,7 +5,7 @@ import { acessoHttp, criarNucleo, sessaoArquivo } from '@erp/nucleo'
 /** Raiz de composição da zona 2. Sessão só em leitura (N3); um domínio de negócio (C). */
 export const nucleo = criarNucleo({
   app: 'zona2',
-  sessao: sessaoArquivo({ dir: process.env.SESSAO_DIR ?? '/tmp/erp-sessoes', modo: 'leitura' }),
+  sessao: sessaoArquivo({ dir: process.env.SESSAO_DIR ?? '/tmp/erp-sessoes' }),
   lerCookieDeSessao: async () => (await cookies()).get('__Host-session')?.value,
   acesso: acessoHttp({ destino: 'gestao-acesso' }),
   destinos: {
