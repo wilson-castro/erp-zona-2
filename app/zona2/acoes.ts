@@ -9,7 +9,7 @@ import { acaoProtegida } from '@/lib/pagina'
  * Versão desatualizada vira `REGISTRO_DESATUALIZADO` no toast, de volta a /zona2.
  */
 export async function concluirTarefa(form: FormData) {
-  return acaoProtegida('zona2.tarefas', '/zona2', async () => {
+  return acaoProtegida({ modulo: 'zona2', funcionalidade: 'tarefas.concluir' }, '/zona2', async () => {
     await nucleo.destino('dominio-c').post('/v1/tarefas/:id/concluir', {
       params: { id: String(form.get('id') ?? '') },
       ifMatch: `"${String(form.get('versao') ?? '')}"`,

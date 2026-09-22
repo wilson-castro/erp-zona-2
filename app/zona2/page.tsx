@@ -6,7 +6,7 @@ import { concluirTarefa } from './acoes'
 type Tarefa = { id: string; titulo: string; concluida: boolean; versao: number }
 
 export default async function Tarefas() {
-  await exigirModulo('zona2.tarefas')
+  await exigirModulo('zona2', 'tarefas.ver')
   const tarefas = (await nucleo.destino('dominio-c').get<Tarefa[]>('/v1/tarefas')).body ?? []
   return (
     <>
