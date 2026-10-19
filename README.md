@@ -6,7 +6,7 @@
 |---|---|
 | Porta | `3002` (acessada pelo navegador **só via shell**, `http://localhost:3000`) |
 | Rotas | `/zona2` (restrito a `zona2.operador`) |
-| Chama | `dominio-c` (`:4003`), `gestao-acesso` (`:4010`) — declarados em `lib/nucleo.ts` (registro de destinos) |
+| Chama | `dominio-c` (`:4003`), `gestao-acesso` (`:4020`) - declarados em `lib/nucleo.ts` (registro de destinos) |
 | Depende de | `@erp/nucleo`, `@erp/moldura`, `@erp/contratos` (Verdaccio local `:4873`) |
 
 ## Responsabilidades
